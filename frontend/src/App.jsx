@@ -4,11 +4,14 @@ import PhotoListItem from './components/PhotoListItem';
 import './App.scss';
 import PhotoFavButton from 'components/PhotoFavButton';
 import PhotoList from 'components/PhotoList';
+import TopicListItem from 'components/TopicListItem';
+import TopicList from 'components/TopicList';
 
 // Note: Rendering a single component to build components in isolation
 
 
 const App = () => {
+  
   // const photos = new Array(3).fill({
   //   id: "1",
   //   location: {
@@ -26,7 +29,8 @@ const App = () => {
       {/* {photos.map((photo, index) => (
         <PhotoListItem key={index} data={photo} />
       ))} */}
-        <PhotoList />
+        {/* <PhotoList /> */}
+        <TopicList />
     </div>
   );
 };

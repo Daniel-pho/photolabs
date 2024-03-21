@@ -68,6 +68,7 @@ const PhotoList = () => {
       username={photo.user.username}
       location={photo.location}
       />
+  
     )
   })
   return (
