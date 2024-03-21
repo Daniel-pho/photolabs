@@ -2,6 +2,7 @@ import React from 'react';
 
 import PhotoListItem from './components/PhotoListItem';
 import './App.scss';
+import PhotoFavButton from 'components/PhotoFavButton';
 
 // Note: Rendering a single component to build components in isolation
 
@@ -27,12 +28,14 @@ const App = () => {
     username: "Joe Example",
     profile: `${process.env.PUBLIC_URL}/profile-1.jpg`,
   })
+
+  
   return (
     <div className="App">
-      {photos.map((photo) => (
-        <PhotoListItem key={photo.id} data={photo} />
+      {photos.map((photo, index) => (
+        <PhotoListItem key={index} data={photo} />
       ))}
-      
+        
     </div>
   );
 };
