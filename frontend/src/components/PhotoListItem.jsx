@@ -9,10 +9,10 @@ const PhotoListItem = ({ sampleDataForPhotoListItem }) => {
 
   return (
     <div className="photo-list__item">
-    <img src={sampleDataForPhotoListItem.imageSource} alt="image" />
-    <img src={sampleDataForPhotoListItem.profile} alt="profile" />
-    <p>{sampleDataForPhotoListItem.username}</p>
-    <p>{location.city}, {location.country}</p>
+    <img className="photo-list__image" src={sampleDataForPhotoListItem.imageSource} alt="image" />
+    <img className="photo-list__user-profile" src={sampleDataForPhotoListItem.profile} alt="profile" />
+    <p className="photo-list__user-info">{sampleDataForPhotoListItem.username}</p>
+    <p className="photo-list__user-location">{location.city}, {location.country}</p>
     </div>
   )
 };
