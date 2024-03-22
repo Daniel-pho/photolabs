@@ -6,12 +6,17 @@ import PhotoFavButton from 'components/PhotoFavButton';
 import PhotoList from 'components/PhotoList';
 import TopicListItem from 'components/TopicListItem';
 import TopicList from 'components/TopicList';
+import TopNavigationBar from 'components/TopNavigationBar';
 
 // Note: Rendering a single component to build components in isolation
 
 
 const App = () => {
-  
+  return (<div className="App">
+  <TopNavigationBar />
+</div>
+  )
+      
   // const photos = new Array(3).fill({
   //   id: "1",
   //   location: {
@@ -24,15 +29,15 @@ const App = () => {
   // })
 
   
-  return (
-    <div className="App">
-      {/* {photos.map((photo, index) => (
-        <PhotoListItem key={index} data={photo} />
-      ))} */}
-        {/* <PhotoList /> */}
-        <TopicList />
-    </div>
-  );
+  // return (
+  //   <div className="App">
+  //     {/* {photos.map((photo, index) => (
+  //       <PhotoListItem key={index} data={photo} />
+  //     ))} */}
+  //       {/* <PhotoList /> */}
+       
+  //   </div>
+  // );
 };
 
 export default App;
