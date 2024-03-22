@@ -14,6 +14,8 @@ import TopNavigationBar from 'components/TopNavigationBar';
 const App = () => {
   return (<div className="App">
   <TopNavigationBar />
+  <div className='home-route'>{<PhotoList/>}</div>
+
 </div>
   )
       

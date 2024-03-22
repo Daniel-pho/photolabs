@@ -73,7 +73,7 @@ const PhotoList = () => {
   })
   return (
     <ul className="photo-list">
-      <li className="photo-list:after">{photos}</li>
+      {photos}
     </ul>
   );
 };
