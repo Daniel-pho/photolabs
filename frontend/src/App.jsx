@@ -7,15 +7,14 @@ import PhotoList from 'components/PhotoList';
 import TopicListItem from 'components/TopicListItem';
 import TopicList from 'components/TopicList';
 import TopNavigationBar from 'components/TopNavigationBar';
+import HomeRoute from 'components/HomeRoute';
 
 // Note: Rendering a single component to build components in isolation
 
 
 const App = () => {
   return (<div className="App">
-  <TopNavigationBar />
-  <div className='home-route'>{<PhotoList/>}</div>
-
+  <HomeRoute/>
 </div>
   )
       
