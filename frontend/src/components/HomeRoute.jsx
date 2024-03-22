@@ -6,7 +6,7 @@ import PhotoList from "./PhotoList";
 import PhotoDetailsModal from "routes/PhotoDetailsModal";
 
 const HomeRoute = (props) => {
-console.log(props);
+
   const [fave, setFave] = useState([]);
   
   const toggleFave = (photoKey) => {
