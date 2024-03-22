@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { useState } from 'react';
 import PhotoListItem from './components/PhotoListItem';
 import './App.scss';
 import PhotoFavButton from 'components/PhotoFavButton';
@@ -10,12 +10,18 @@ import TopNavigationBar from 'components/TopNavigationBar';
 import HomeRoute from 'components/HomeRoute';
 import photos from 'mocks/photos';
 import topics from 'mocks/topics';
+import PhotoDetailsModal from 'routes/PhotoDetailsModal';
 // Note: Rendering a single component to build components in isolation
 
 
 const App = () => {
+  const [modal, setModal] = useState(false)
+  const toggleModal = () => {
+    setModal(prev => !prev)
+  }
   return (<div className="App">
-  <HomeRoute photos={photos} topics={topics}/>
+  <HomeRoute photos={photos} topics={topics} 
+  modalView={PhotoDetailsModal} modal={modal} toggleM={toggleModal}/>
 </div>
   )
       

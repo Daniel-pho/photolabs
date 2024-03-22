@@ -5,7 +5,7 @@ import '../styles/FavBadge.scss';
 
 const FavBadge = (props) => {
 
-  console.log(props, "fav photo exists")
+  
 
   const faveCheck = props.fave.length > 0
   

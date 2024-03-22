@@ -3,9 +3,10 @@ import { useState } from "react";
 import "../styles/HomeRoute.scss";
 import TopNavigation from "./TopNavigationBar";
 import PhotoList from "./PhotoList";
+import PhotoDetailsModal from "routes/PhotoDetailsModal";
 
 const HomeRoute = (props) => {
-
+console.log(props);
   const [fave, setFave] = useState([]);
   
   const toggleFave = (photoKey) => {
@@ -19,7 +20,8 @@ const HomeRoute = (props) => {
   return (
     <div className="home-route">
     <TopNavigation topics={props.topics} fave={fave}/>
-    <PhotoList photos={props.photos} fave={fave} toggleFave={toggleFave}/>
+    <PhotoList photos={props.photos} fave={fave} toggleFave={toggleFave}
+     modal={props.modal} modalView={props.modalView} toggleM={props.toggleM}/>
     </div>
 
   )

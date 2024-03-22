@@ -2,11 +2,12 @@ import React from "react";
 
 import "../styles/PhotoList.scss";
 import PhotoListItem from "./PhotoListItem";
+import PhotoDetailsModal from "routes/PhotoDetailsModal";
 
 
 
 const PhotoList = (props) => {
-
+console.log(props);
   const photos = props.photos.map((photo) => {
   
     return (
@@ -19,6 +20,9 @@ const PhotoList = (props) => {
       location={photo.location}
       fave={props.fave}
       toggleFave={props.toggleFave}
+      modal={props.modal}
+      modalView={props.modalView}
+      toggleM={props.toggleM}
       />
   
     )
