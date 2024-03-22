@@ -22,6 +22,7 @@ const App = () => {
   return (<div className="App">
   <HomeRoute photos={photos} topics={topics} 
   modalView={PhotoDetailsModal} modal={modal} toggleM={toggleModal}/>
+  {modal && <PhotoDetailsModal/>}
 </div>
   )
       

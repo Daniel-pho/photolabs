@@ -15,7 +15,7 @@ const PhotoListItem = (props) => {
     <div className="photo-list__item" >
     <PhotoFavButton id={props.id} fave={props.fave} toggleFave={props.toggleFave}/>
     <img className="photo-list__image" src={props.imageSource} alt="image" onClick={handleClick}/>
-    {props.modal && <props.modalView/>}
+    
     <div className="photo-list__user-details">
     <img className="photo-list__user-profile" src={props.profile} alt="profile" />
     <div className="photo-list__user-info">
