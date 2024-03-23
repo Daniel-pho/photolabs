@@ -16,13 +16,25 @@ import PhotoDetailsModal from 'routes/PhotoDetailsModal';
 
 const App = () => {
   const [modal, setModal] = useState(false)
+  const [photo, setPhoto] = useState([]);
+  
+  
+  const viewPhoto = (pic) => {
+      photo.pop()
+      photo.push(pic)
+      setPhoto(photo)
+  }
+  
   const toggleModal = () => {
     setModal(prev => !prev)
   }
   return (<div className="App">
   <HomeRoute photos={photos} topics={topics} 
-  modalView={PhotoDetailsModal} modal={modal} toggleM={toggleModal}/>
-  {modal && <PhotoDetailsModal modal={modal} toggleM={toggleModal} photos={photos}/>}
+  modalView={PhotoDetailsModal} modal={modal} toggleM={toggleModal} 
+  photo={photo} viewPhoto={viewPhoto}/>
+  {modal && <PhotoDetailsModal modal={modal} toggleM={toggleModal} photo={photo} viewPhoto={viewPhoto}
+  
+  />}
 </div>
   )
       
