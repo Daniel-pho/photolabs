@@ -6,21 +6,13 @@ import PhotoList from "./PhotoList";
 import PhotoDetailsModal from "routes/PhotoDetailsModal";
 
 const HomeRoute = (props) => {
-
-  const [fave, setFave] = useState([]);
-  
-  const toggleFave = (photoKey) => {
-    if (fave.includes(photoKey)) {
-      setFave(prevFave => prevFave.filter(id => id !== photoKey))
-    } else {
-      setFave(prevFave => [...prevFave, photoKey])
-    }
-  }
+//Clean out fave 
+ 
   
   return (
     <div className="home-route">
-    <TopNavigation topics={props.topics} fave={fave}/>
-    <PhotoList photos={props.photos} fave={fave} toggleFave={toggleFave}
+    <TopNavigation topics={props.topics} fave={props.fave}/>
+    <PhotoList photos={props.photos} fave={props.fave} toggleFave={props.toggleFave}
      modal={props.modal} modalView={props.modalView} toggleM={props.toggleM}
      photo={props.photo} viewPhoto={props.viewPhoto}/>
   
