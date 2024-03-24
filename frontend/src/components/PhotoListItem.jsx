@@ -11,6 +11,7 @@ const PhotoListItem = (props) => {
   const handleClick = (event) => {
     props.toggleM()
     props.viewPhoto(props.id)
+    
   }
   return (
     <div className="photo-list__item" >

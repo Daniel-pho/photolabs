@@ -16,7 +16,7 @@ import PhotoDetailsModal from 'routes/PhotoDetailsModal';
 
 const App = () => {
   const [modal, setModal] = useState(false)
-  const [photo, setPhoto] = useState([]);
+  const [photo, setPhoto] = useState();
   const [fave, setFave] = useState([]);
   
   const toggleFave = (photoKey) => {
@@ -28,9 +28,7 @@ const App = () => {
   }
   
   const viewPhoto = (pic) => {
-      photo.pop()
-      photo.push(pic)
-      setPhoto(photo)
+      setPhoto(pic)
   }
   
   const toggleModal = () => {
