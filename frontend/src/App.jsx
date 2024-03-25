@@ -15,8 +15,9 @@ import PhotoDetailsModal from 'routes/PhotoDetailsModal';
 
 
 const App = () => {
+  console.log(photos, "original pics");
   const [modal, setModal] = useState(false)
-  const [photo, setPhoto] = useState();
+ 
   const [fave, setFave] = useState([]);
   
   const toggleFave = (photoKey) => {
@@ -27,20 +28,19 @@ const App = () => {
     }
   }
   
-  const viewPhoto = (pic) => {
-      setPhoto(pic)
-  }
+ 
   
   const toggleModal = () => {
-    setModal(prev => !prev)
+    setModal(prevstate => !prevstate)
   }
+
+
   return (<div className="App">
   <HomeRoute photos={photos} topics={topics} 
   modalView={PhotoDetailsModal} modal={modal} toggleM={toggleModal} 
-  photo={photo} viewPhoto={viewPhoto} fave={fave} toggleFave={toggleFave}/>
-  {modal && <PhotoDetailsModal modal={modal} toggleM={toggleModal} photo={photo} viewPhoto={viewPhoto} photos={photos}
+   fave={fave} toggleFave={toggleFave}/>
+  {modal && <PhotoDetailsModal  toggleM={toggleModal}  photos={photos}
   fave={fave} toggleFave={toggleFave}
-  
   />}
 </div>
   )

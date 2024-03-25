@@ -14,7 +14,7 @@ const HomeRoute = (props) => {
     <TopNavigation topics={props.topics} fave={props.fave}/>
     <PhotoList photos={props.photos} fave={props.fave} toggleFave={props.toggleFave}
      modal={props.modal} modalView={props.modalView} toggleM={props.toggleM}
-     photo={props.photo} viewPhoto={props.viewPhoto}/>
+    />
   
     </div>
 

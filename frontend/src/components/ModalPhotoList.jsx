@@ -6,15 +6,15 @@ import PhotoDetailsModal from "routes/PhotoDetailsModal";
 
 
 
-const PhotoList = (props) => {
-// console.log(props.photos, "THESE ARE THE PHOTOS FROM PHOTOLIST");
+const ModalPhotoList = (props) => {
+
 
   
   const photos = props.photos.map((photo) => {
   
     return (
       <PhotoListItem
-      key={photo.id}
+      key={photo.id + "corn"}
       id={photo.id}
       imageSource={photo.urls.full}
       profile={photo.user.profile}
@@ -37,4 +37,4 @@ const PhotoList = (props) => {
   );
 };
 
-export default PhotoList;
+export default ModalPhotoList;
