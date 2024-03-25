@@ -25,7 +25,7 @@ const PhotoList = (props) => {
       modal={props.modal}
       modalView={props.modalView}
       toggleM={props.toggleM}
-      
+      setSelected={props.setSelected}
       />
   
     )

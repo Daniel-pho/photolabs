@@ -8,14 +8,15 @@ const PhotoListItem = (props) => {
     // console.log(props, "these are the items");
   /* Insert React */
   const location = props.location
-  const handleClick = () => {
+  const handleClick = (event) => {
+    // console.log(props)
     props.toggleM()
-    
+    props.setSelected(props.id)
   }
   return (
     <div className="photo-list__item" >
     <PhotoFavButton id={props.id} fave={props.fave} toggleFave={props.toggleFave}/>
-    <img className="photo-list__image" src={props.imageSource} alt="image" onClick={props.toggleM}/>
+    <img className="photo-list__image" src={props.imageSource} alt="image" onClick={handleClick}/>
     <div className="photo-list__user-details">
     <img className="photo-list__user-profile" src={props.profile} alt="profile" />
     <div className="photo-list__user-info">
