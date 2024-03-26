@@ -16,10 +16,7 @@ import PhotoDetailsModal from 'routes/PhotoDetailsModal';
 
 const App = () => {
   // console.log(photos, "original pics");
-  const [modal, setModal] = useState(false)
-  const [selected, setSelected] = useState("")
-  const [fave, setFave] = useState([]);
-  
+  const {}
   const toggleFave = (photoKey) => {
     if (fave.includes(photoKey)) {
       setFave(prevFave => prevFave.filter(id => id !== photoKey))
@@ -34,13 +31,12 @@ const App = () => {
     setModal(prevstate => !prevstate)
   }
 
-
   return (<div className="App">
   <HomeRoute photos={photos} topics={topics} 
   modalView={PhotoDetailsModal} modal={modal} toggleM={toggleModal} 
    fave={fave} toggleFave={toggleFave} selected={selected} setSelected={setSelected}/>
   {modal && <PhotoDetailsModal  toggleM={toggleModal}  photos={photos}
-  fave={fave} toggleFave={toggleFave} selected={selected}
+  fave={fave} toggleFave={toggleFave} selected={selected} 
   />}
 </div>
   )

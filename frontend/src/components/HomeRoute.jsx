@@ -4,6 +4,7 @@ import "../styles/HomeRoute.scss";
 import TopNavigation from "./TopNavigationBar";
 import PhotoList from "./PhotoList";
 import PhotoDetailsModal from "routes/PhotoDetailsModal";
+import photos from "mocks/photos";
 
 const HomeRoute = (props) => {
 //Clean out fave 
@@ -14,7 +15,7 @@ const HomeRoute = (props) => {
     <TopNavigation topics={props.topics} fave={props.fave}/>
     <PhotoList photos={props.photos} fave={props.fave} toggleFave={props.toggleFave}
      modal={props.modal} modalView={props.modalView} toggleM={props.toggleM} setSelected={props.setSelected}
-    />
+    id={photos.id}/>
   
     </div>
 

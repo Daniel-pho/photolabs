@@ -7,7 +7,7 @@ import PhotoDetailsModal from "routes/PhotoDetailsModal";
 
 
 const PhotoList = (props) => {
-console.log(props.photos, "THESE ARE THE PHOTOS FROM PHOTOLIST");
+// console.log(props.photos, "THESE ARE THE PHOTOS FROM PHOTOLIST");
 
   
   const photos = props.photos.map((photo) => {
