@@ -4,10 +4,10 @@ import { useState } from "react"
 
 export default function useApplicationData = () = {
 
-
-  const [modal, setModal] = useState(false);
-  const [selected, setSelected] = useState("");
-  const [fave, setFave] = useState([]);
+  const [state, setState] = useState({ modal: false, selected: "", fave: [] });
+  // const [modal, setModal] = useState(false);
+  // const [selected, setSelected] = useState("");
+  // const [fave, setFave] = useState([]);
   
   return {
     modal,
@@ -21,4 +21,3 @@ export default function useApplicationData = () = {
 }
 
 
-export default useApplicationData;

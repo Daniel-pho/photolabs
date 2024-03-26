@@ -1,5 +1,5 @@
 import React from 'react';
-import { useState } from 'react';
+
 import PhotoListItem from './components/PhotoListItem';
 import './App.scss';
 import PhotoFavButton from 'components/PhotoFavButton';
@@ -11,12 +11,14 @@ import HomeRoute from 'components/HomeRoute';
 import photos from 'mocks/photos';
 import topics from 'mocks/topics';
 import PhotoDetailsModal from 'routes/PhotoDetailsModal';
+import useApplicationData from 'hooks/useApplicationData';
 // Note: Rendering a single component to build components in isolation
 
 
 const App = () => {
   // console.log(photos, "original pics");
-  const {}
+  const { modal, setModal, selected, setSelected, fave, setFave } = useApplicationData();
+
   const toggleFave = (photoKey) => {
     if (fave.includes(photoKey)) {
       setFave(prevFave => prevFave.filter(id => id !== photoKey))
