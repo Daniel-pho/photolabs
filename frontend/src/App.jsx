@@ -17,21 +17,9 @@ import useApplicationData from 'hooks/useApplicationData';
 
 const App = () => {
   // console.log(photos, "original pics");
-  const { modal, setModal, selected, setSelected, fave, setFave } = useApplicationData();
+  const { modal, setModal, selected, setSelected, fave, setFave, toggleFave, toggleModal } = useApplicationData();
 
-  const toggleFave = (photoKey) => {
-    if (fave.includes(photoKey)) {
-      setFave(prevFave => prevFave.filter(id => id !== photoKey))
-    } else {
-      setFave(prevFave => [...prevFave, photoKey])
-    }
-  }
   
-  
-  
-  const toggleModal = () => {
-    setModal(prevstate => !prevstate)
-  }
 
   return (<div className="App">
   <HomeRoute photos={photos} topics={topics} 
