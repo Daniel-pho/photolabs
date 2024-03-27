@@ -10,8 +10,8 @@ import photos from 'mocks/photos';
 
 
 const PhotoDetailsModal = (props) => {
-  console.log(props.photos,"THESE ARE THE PHOTOS");
-
+  // console.log(props.photos,"THESE ARE THE PHOTOS");
+console.log(props, "these are props");
   const chosenPhoto = () => {
     for (const pic of props.photos) {
       if(pic.id === props.selected) {
@@ -22,6 +22,7 @@ const PhotoDetailsModal = (props) => {
     
     const faveThisPic=props.toggleFave
     const chosenPic = chosenPhoto()
+    console.log(chosenPic, "this is chosen");
     const chosenPicObject = chosenPic.similar_photos
     const id =props.photos.id
     const similarArr = []
@@ -36,7 +37,7 @@ const PhotoDetailsModal = (props) => {
     <div className="photo-details-modal">
       <button
         className="photo-details-modal__close-button"
-        onClick={props.toggleM}
+        onClick={props.toggleModal}
       >
         <img src={closeSymbol} alt="close symbol" />
       </button>

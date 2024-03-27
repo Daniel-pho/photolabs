@@ -1,12 +1,5 @@
 import React from 'react';
-
-import PhotoListItem from './components/PhotoListItem';
 import './App.scss';
-import PhotoFavButton from 'components/PhotoFavButton';
-import PhotoList from 'components/PhotoList';
-import TopicListItem from 'components/TopicListItem';
-import TopicList from 'components/TopicList';
-import TopNavigationBar from 'components/TopNavigationBar';
 import HomeRoute from 'components/HomeRoute';
 import photos from 'mocks/photos';
 import topics from 'mocks/topics';
@@ -17,15 +10,15 @@ import useApplicationData from 'hooks/useApplicationData';
 
 const App = () => {
   // console.log(photos, "original pics");
-  const { modal, setModal, selected, setSelected, fave, setFave, toggleFave, toggleModal } = useApplicationData();
+  const { modal, setModal, selected, setSelected, fave, setFave, toggleFave, toggleModal, toggleSelect } = useApplicationData();
 
   
 
   return (<div className="App">
   <HomeRoute photos={photos} topics={topics} 
-  modalView={PhotoDetailsModal} modal={modal} toggleM={toggleModal} 
-   fave={fave} toggleFave={toggleFave} selected={selected} setSelected={setSelected}/>
-  {modal && <PhotoDetailsModal  toggleM={toggleModal}  photos={photos}
+  modalView={PhotoDetailsModal} modal={modal} toggleModal={toggleModal} 
+   fave={fave} toggleFave={toggleFave} selected={selected} setSelected={setSelected} toggleSelect={toggleSelect}/>
+  {modal && <PhotoDetailsModal  toggleModal={toggleModal}  photos={photos}
   fave={fave} toggleFave={toggleFave} selected={selected} 
   />}
 </div>

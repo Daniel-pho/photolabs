@@ -10,8 +10,8 @@ const PhotoListItem = (props) => {
   const location = props.location
   const handleClick = (event) => {
     // console.log(props)
-    props.toggleM()
-    props.setSelected(props.id)
+    props.toggleModal(props.id)
+    props.toggleSelect(props.id)
   }
   return (
     <div className="photo-list__item" >
