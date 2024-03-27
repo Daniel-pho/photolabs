@@ -1,13 +1,15 @@
 import React from "react"
 import { useEffect } from "react"
 import { useState } from "react"
+import { useReducer } from "react";
 
-export default function useApplicationData() {
 
-  const [state, setState] = useState({ modal: null, selected: null, fave: [] });
-  // const [modal, setModal] = useState(false);
-  // const [selected, setSelected] = useState("");
-  // const [fave, setFave] = useState([]);
+  const initialState= {
+    fave: [],
+    modal: null,
+    selected: [],
+  }
+
   const ACTIONS = {
     FAV_PHOTO_ADDED: 'FAV_PHOTO_ADDED',
     FAV_PHOTO_REMOVED: 'FAV_PHOTO_REMOVED',
@@ -37,26 +39,32 @@ export default function useApplicationData() {
       
       case ACTIONS.DISPLAY_PHOTO_DETAILS:
         return {...state}
+      default:
+        return state
   }
+};
+
+  export default useApplicationData = () => {
+
+  const [state, dispatch] = useReducer(reducer, initialState);
+
   const toggleFave = (photoKey) => {
     if (state.fave.includes(photoKey)) {
-      setState(prevState => ({...prevState, fave:prevState.fave.filter(id => id !== photoKey)}))
+      dispatch({type: ACTIONS.FAV_PHOTO_REMOVED, payload: {id: photoKey}})
     } else {
-      setState(prevState => ({...prevState, fave: [...prevState.fave, photoKey]}))
+      dispatch({type: ACTIONS.FAV_PHOTO_ADDED, payload: {id: photoKey}})
     }
   }
   
   const toggleModal = (modalpic) => {
-    setState(prevState => ({ ...prevState, modal: !prevState.modal }))
+    dispatch({type: modalpic ? ACTIONS.SELECT_PHOTO : ACTIONS.DESELECT_PHOTO, payload: display})
   }
 
   const toggleSelect = (id) => {
-    setState(prevState => ({...prevState, selected:id}))
+    dispatch({type: ACTIONS.SELECT_PHOTO, payload: id})
   }
   return {
-    modal: state.modal,
-    selected: state.selected,
-    fave: state.fave,
+    state,
     toggleModal,
     toggleFave,
     toggleSelect
@@ -64,4 +72,4 @@ export default function useApplicationData() {
 
 }
 
-}
+
