@@ -10,15 +10,15 @@ export default function useApplicationData() {
   // const [fave, setFave] = useState([]);
   
   const toggleFave = (photoKey) => {
-    if (fave.includes(photoKey)) {
-      setFave(prevFave => prevFave.filter(id => id !== photoKey))
+    if (state.fave.includes(photoKey)) {
+      setState(prevFave => prevFave.filter(id => id !== photoKey))
     } else {
-      setFave(prevFave => [...prevFave, photoKey])
+      setState(prevFave => [...prevFave, photoKey])
     }
   }
   
   const toggleModal = () => {
-    setModal(prevstate => !prevstate)
+    setState(prevstate => !prevstate)
   }
 
   return {
