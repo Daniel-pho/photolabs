@@ -14,7 +14,7 @@ const PhotoDetailsModal = (props) => {
 console.log(props, "these are props");
   const chosenPhoto = () => {
     for (const pic of props.photos) {
-      if(pic.id === props.selected) {
+      if(pic.id === props.state.selected) {
         return pic
       }
     }

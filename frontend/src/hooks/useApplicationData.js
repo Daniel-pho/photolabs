@@ -1,23 +1,27 @@
 import React from "react"
 import { useEffect } from "react"
 import { useState } from "react"
-import { useReducer } from "react";
+import { useReducer} from "react";
 
 
   const initialState= {
     fave: [],
-    modal: null,
-    selected: [],
+    modal: false,
+    selected: null,
+    photoData: [],
+    topicaData: []
   }
 
   const ACTIONS = {
     FAV_PHOTO_ADDED: 'FAV_PHOTO_ADDED',
     FAV_PHOTO_REMOVED: 'FAV_PHOTO_REMOVED',
-    SET_PHOTO_DATA: 'SET_PHOTO_DATA',
+    SET_SELECTED_PHOTO_DATA: 'SET_SELECTED_PHOTO_DATA',
     SET_TOPIC_DATA: 'SET_TOPIC_DATA',
     SELECT_PHOTO: 'SELECT_PHOTO',
     DESELECT_PHOTO: 'DESELECT_PHOTO',
-    DISPLAY_PHOTO_DETAILS: 'DISPLAY_PHOTO_DETAILS'
+    DISPLAY_PHOTO_DETAILS: 'DISPLAY_PHOTO_DETAILS',
+    TOGGLE_MODAL: 'TOGGLE_MODAL',
+    SET_PHOTO_DATA: 'SET_PHOTO_DATA'
   };
 
   const reducer = (state, action) => {
@@ -28,48 +32,83 @@ import { useReducer } from "react";
       case ACTIONS.FAV_PHOTO_REMOVED:
         return {...state, fave: state.fave.filter(photo => photo.id !== action.payload.id)};
 
-      case ACTIONS.SET_PHOTO_DATA:
+      case ACTIONS.SET_SELECTED_PHOTO_DATA:
         return {...state, selected: action.payload};
 
-      case ACTIONS.SELECT_PHOTO:
-        return {...state, modal: action.payload};
+      case ACTIONS.TOGGLE_MODAL:
+        return {...state, modal: !state.modal};
 
       case ACTIONS.DESELECT_PHOTO:
-        return {...state, modal: null};
+        return {...state, selected: []};
+
+      case ACTIONS.SELECT_PHOTO:
+        return {...state, selected: action.payload};
       
       case ACTIONS.DISPLAY_PHOTO_DETAILS:
-        return {...state}
+        return {...state, }
+
+      case ACTIONS.SET_PHOTO_DATA:
+        return {...state, photoData: action.payload};
+
+      case ACTIONS.SET_TOPIC_DATA:
+        return {...state, topicData: action.payload};
+
       default:
         return state
   }
 };
 
-  export default useApplicationData = () => {
+  const useApplicationData = () => {
+
+    useEffect(() => {
+      fetch("/api/photos")
+        .then((response) => response.json())
+        .then((data) =>
+          dispatch({ type: ACTIONS.SET_PHOTO_DATA, payload: data })
+        );
+    }, []);
+
+    useEffect(() => {
+      fetch('/api/topics')
+      .then((response) => 
+       response.json())
+       .then((data) =>
+        dispatch({ type: ACTIONS.SET_TOPIC_DATA, payload: data })
+        );
+    }, [])
+    
+    
 
   const [state, dispatch] = useReducer(reducer, initialState);
 
   const toggleFave = (photoKey) => {
     if (state.fave.includes(photoKey)) {
-      dispatch({type: ACTIONS.FAV_PHOTO_REMOVED, payload: {id: photoKey}})
+      dispatch({type: ACTIONS.FAV_PHOTO_REMOVED, payload: photoKey})
     } else {
-      dispatch({type: ACTIONS.FAV_PHOTO_ADDED, payload: {id: photoKey}})
+      dispatch({type: ACTIONS.FAV_PHOTO_ADDED, payload: photoKey})
     }
   }
   
   const toggleModal = (modalpic) => {
-    dispatch({type: modalpic ? ACTIONS.SELECT_PHOTO : ACTIONS.DESELECT_PHOTO, payload: display})
+    dispatch({type: ACTIONS.TOGGLE_MODAL})
   }
 
-  const toggleSelect = (id) => {
+  const setSelected = (id) => {
     dispatch({type: ACTIONS.SELECT_PHOTO, payload: id})
   }
+  const toggleSelect = (photo) => {
+    dispatch({type: state.selected ? ACTIONS.DESELECT_PHOTO : ACTIONS.SET_PHOTO_DATA, selected: photo})
+  }
+
+
   return {
     state,
     toggleModal,
     toggleFave,
+    setSelected,
     toggleSelect
   };
 
 }
 
-
+export default useApplicationData;
