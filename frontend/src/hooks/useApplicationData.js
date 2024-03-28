@@ -3,13 +3,13 @@ import { useEffect } from "react"
 import { useState } from "react"
 import { useReducer} from "react";
 
-
+const useApplicationData = () => {
   const initialState= {
     fave: [],
     modal: false,
     selected: null,
     photoData: [],
-    topicaData: []
+    topicData: []
   }
 
   const ACTIONS = {
@@ -53,12 +53,16 @@ import { useReducer} from "react";
       case ACTIONS.SET_TOPIC_DATA:
         return {...state, topicData: action.payload};
 
+      case ACTIONS.GET_PHOTOS_BY_TOPICS:
+        return {...state, photoData: action.payload}
+
       default:
         return state
   }
 };
 
-  const useApplicationData = () => {
+  
+ const [state, dispatch] = useReducer(reducer, initialState);
 
     useEffect(() => {
       fetch("/api/photos")
@@ -78,8 +82,13 @@ import { useReducer} from "react";
     }, [])
     
     
-
-  const [state, dispatch] = useReducer(reducer, initialState);
+  const fetchPicByTopicId = (topic) => {
+    fetch(`http://localhost:8001/api/topics/photos/${topic}`)
+    .then((response) => response.json())
+    .then((data) => 
+    dispatch({ type: ACTIONS.GET_PHOTOS_BY_TOPICS, payload: data})
+    )}
+ 
 
   const toggleFave = (photoKey) => {
     if (state.fave.includes(photoKey)) {
