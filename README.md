@@ -22,3 +22,8 @@ Read `backend/readme` for further setup details.
 cd backend
 npm start
 ```
+## [ScreenShots!]
+
+!["The main display of the web app "](https://github.com/TapiocaQueen990/photolabs/blob/main/docs/photolabs1.jpg)
+!["A close up view of the selected image!"](https://github.com/TapiocaQueen990/photolabs/blob/main/docs/photolabs2.jpg?raw=true)
+!["Choosing what content to view via the navigation bar"](https://github.com/TapiocaQueen990/photolabs/blob/main/docs/photolabs3.jpg?raw=true)
