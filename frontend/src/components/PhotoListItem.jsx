@@ -5,12 +5,12 @@ import PhotoFavButton from "./PhotoFavButton";
 import PhotoDetailsModal from "routes/PhotoDetailsModal";
 
 const PhotoListItem = (props) => {
-    // console.log(props, "these are the items");
+    
   /* Insert React */
   
   const location = props.location
   const handleClick = (event) => {
-    // console.log(props)
+   
     props.toggleModal(props.id)
     props.setSelected(props.id)
   }

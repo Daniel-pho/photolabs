@@ -10,7 +10,9 @@ const TopicList = (props) => {
     return (
       <TopicListItem
       key={topic.id}
+      id={topic.id}
       label={topic.title}
+      toggleTopic={props.toggleTopic}
       />
     )
   })

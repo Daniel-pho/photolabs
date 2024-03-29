@@ -9,17 +9,21 @@ import useApplicationData from 'hooks/useApplicationData';
 
 
 const App = () => {
-  // console.log(photos, "original pics");
-  const {  state, toggleModal, toggleFave, setSelected, toggleSelect} = useApplicationData();
+  
+  const {  state, toggleModal, toggleFave, setSelected, toggleSelect, toggleTopic} = useApplicationData();
  
   
 
   return (<div className="App">
   <HomeRoute photos={state.photoData} topics={state.topicData} 
   modalView={PhotoDetailsModal} modal={state.modal} toggleModal={toggleModal} 
-   fave={state.fave} toggleFave={toggleFave} selected={state.selected} setSelected={setSelected} toggleSelect={toggleSelect}/>
-  {state.modal && <PhotoDetailsModal  toggleModal={toggleModal}  photos={state.photoData}
-  fave={state.fave} toggleFave={toggleFave} selected={state.selected} state={state}
+   fave={state.fave} toggleFave={toggleFave} selected={state.selected} 
+   setSelected={setSelected} toggleSelect={toggleSelect} toggleTopic={toggleTopic}/>
+
+
+  {state.modal && <PhotoDetailsModal  toggleModal={toggleModal}  
+  photos={state.photoData} fave={state.fave} toggleFave={toggleFave} 
+  selected={state.selected} state={state}
   />}
 </div>
   )
